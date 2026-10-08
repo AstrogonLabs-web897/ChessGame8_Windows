@@ -14,14 +14,15 @@
 
 ## 🛠️ Стек технологий (Tech Stack)
 
-* **Язык программирования:** C# 12 / C# 13
-* **Платформа:** .NET 8.0 / .NET 9.0 (WPF)
+* **Язык программирования:** C# 13 / C# 14
+* **Платформа:** .NET 8.0 / .NET 9.0, .NET 10.O.x (WPF) 
 * **Архитектурный паттерн:** MVVM (Model-View-ViewModel)
 * **Сторонние библиотеки:**
 
   * `Newtonsoft.Json` (для сериализации игрового состояния)
   * `CommunityToolkit.Mvvm` (управление командами `RelayCommand`)
-
+  * `Microsoft.Extensions.DepencyInjection`
+  * `Microsoft.Xaml.Behaviors.Wpf`
 ---
 
 ## 📸 Скриншоты (Screenshots)
