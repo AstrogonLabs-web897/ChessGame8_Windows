@@ -1,0 +1,70 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="WindowTitleStyle" TargetType="Window">
+        <Setter Property="Title" Value="Chess Game"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontFamily" Value="Times New Roman"/>
+        <Setter Property="Background" Value="LightGoldenrodYellow"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style x:Key="MenuButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+        <!-- Используется специальный шрифт для иконок -->
+        <Setter Property="Content" Value="U+22EE"/>
+        <!-- Три точки в Unicode -->
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PageTitleStyle" TargetType="Page">
+        <Setter Property="Title" Value="Chess Game"/>
+        <Setter Property="FontFamily" Value="Times New Roman" />
+        <Setter Property="Background" Value="Beige"/>
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+    <Style x:Key="Page" TargetType="Page">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Page">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Шапка с названием игры -->
+                        <DockPanel Grid.Row="0" Background="#FFDCDCDC">
+                            <Border Padding="10">
+                                <TextBlock Text="Chess Game" FontSize="24" FontWeight="Bold" Foreground="Black"/>
+                            </Border>
+                        </DockPanel>
+
+                        <!-- Основная область страницы -->
+                        <ContentPresenter Grid.Row="1"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
