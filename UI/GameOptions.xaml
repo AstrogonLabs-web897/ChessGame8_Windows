@@ -1,0 +1,78 @@
+﻿<Page x:Class="ChessGame8.UI.GameOptions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChessGame8.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="GameOptions">
+
+    <Page.Resources>
+        <Style x:Key="RadioButtonInComboBoxStyle" TargetType="RadioButton">
+            <Setter Property="Margin" Value="5"/>
+            <!-- Группируем радио-кнопки -->
+            <Setter Property="GroupName" Value="GameModes"/>
+            <Setter Property="GroupName" Value="ColorGroup"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid >
+        <Canvas Name="GameModeCanvas" Background="LightGoldenrodYellow"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!-- Имя игрока -->
+            <Label Content="Имя игрока:" Grid.Row="0" Grid.Column="0" Margin="5"/>
+            <TextBox x:Name="PlayerNameInput" Grid.Row="0" Grid.Column="1" Margin="5,10,5,0" PreviewKeyDown="PlayerNameInput_PreviewKeyDown"  TextChanged="PlayerNameImput_TextChaged" LostFocus="PlayerNameInput_LostFocus"/>
+            <TextBlock Text="Choose Game Mode" FontSize="24" FontWeight="Bold" Margin="0,20,0,20"/>
+            <!-- Выбор режима игры -->
+            <Label Content="Режим игры:" Grid.Row="1" Grid.Column="0" Margin="5"/>
+            <ComboBox x:Name="GameModeComboBox" Grid.Row="1" Grid.Column="1" Margin="5" SelectionChanged="GameModeComboBox_SelectionChanged">
+                <ComboBoxItem Tag="SinglePlayerVsComputer">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton x:Name="SinglePlayerRadioButton" Content="Одиночная игра против компьютера" GroupName="GameModes" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=IsSelected}" Style="{DynamicResource RadioButtonInComboBoxStyle}" Checked="ModeRadioButton_Checked"/>
+                        <TextBlock Text="Одиночная игра против компьютера"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem Tag="Multiplayer2VsComputer">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton x:Name="MultiPlayer2VsComputerRadioButton" Content="Многопользовательская игра 2 против компьютера" GroupName="GameModes" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=IsSelected}" Style="{DynamicResource RadioButtonInComboBoxStyle}" Checked="ModeRadioButton_Checked"/>
+                        <TextBlock Text="Многопользовательская игра 2 против компьютера"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem Tag="Multiplayer2v2">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton x:Name="Multiplayer2v2RadioButton" Content="Многопользовательская игра 2 на 2" GroupName="GameModes" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=IsSelected}" Style="{DynamicResource RadioButtonInComboBoxStyle}" Checked="ModeRadioButton_Checked"/>
+                        <TextBlock Text="Многопользовательская игра 2 на 2"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem Tag="Multiplayer4v4">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton x:Name="Multiplayer4v4RadioButton" Content="Многопользовательская игра 4 на 4" GroupName="GameModes" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=IsSelected}" Style="{DynamicResource RadioButtonInComboBoxStyle}" Checked="ModeRadioButton_Checked"/>
+                        <TextBlock Text="Многопользовательская игра 4 на 4"/>
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
+            <!-- Выбор цвета -->
+            <Label Content="Цвет игрока:" Grid.Row="2" Grid.Column="0" Margin="5"/>
+            <ComboBox x:Name="ColorComboBox" Grid.Row="2" Grid.Column="1" Margin="5" SelectionChanged="ColorComboBox_SelectionChanged">
+                <ComboBoxItem Tag="White">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton x:Name="WhiteRadioButton" Content="Белые" GroupName="ColorGroup" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=IsSelected}" Style="{DynamicResource RadioButtonInComboBoxStyle}" Checked="ColorRadioButton_Checked"/>
+                        <TextBlock Text="White"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem Tag="Black">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton x:Name="BlackRadioButton" Content="Черные" GroupName="ColorGroup" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=IsSelected}" Style="{DynamicResource RadioButtonInComboBoxStyle}" Checked="ColorRadioButton_Checked"/>
+                        <TextBlock Text="Black"/>
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="SaveGameOptions" Content="Save Game Options" Width="150" Height="30" Margin="0,20,0,0" Click="SaveOptionsButton_Click"/>
+            <Button x:Name="More_Settings" Content="More Settings" Width="150" Height="30" Margin="0,20,0,0" Click="MoreSettingsButton_Click"/>
+            <!-- Кнопка "Отмена" -->
+            <Button x:Name="ResetButton" Content="Settings Reset" Width="150"  Height="30" Margin="0,20,0,0"  Click="ResetButton_Click"/>
+            <Button x:Name="BackButton"  Content="Back" Width="150" Height="30" Margin="0,20,0,0" Click="BackButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

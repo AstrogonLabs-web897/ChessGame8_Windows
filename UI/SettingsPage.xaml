@@ -1,0 +1,44 @@
+﻿<Page x:Class="ChessGame8.UI.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local_root="clr-namespace:ChessGame8"
+      xmlns:local="clr-namespace:ChessGame8.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Настройки">
+    <Page.Resources>
+        <local_root:ThemeToIsCheckedConverter x:Key="ThemeToIsCheckedConverter"/>
+    </Page.Resources>
+    
+    <Grid>
+        <Canvas Name="SettingsMenuCanvas" Background="LightGoldenrodYellow"/>
+        <StackPanel Margin="10">
+            <TextBlock Text=" Темы:" FontSize="18" Margin="0,10,0,0"/>
+            <RadioButton x:Name="lightThemeRadio" GroupName="ThemeSelection" Content="Светлая тема" IsChecked="{Binding Theme, Mode=TwoWay, Converter={StaticResource ThemeToIsCheckedConverter}, ConverterParameter='White'}"/>
+            <RadioButton x:Name="darkThemeRadio" GroupName="ThemeSelection" Content="Тёмная тема"  IsChecked="{Binding Theme, Mode=TwoWay, Converter={StaticResource ThemeToIsCheckedConverter}, ConverterParameter='Dark'}"/>
+
+            <TextBlock Text=" Скорость ходов пользователя и ИИ:" FontSize="18" Margin="0,10,0,0"/>
+            <Slider x:Name="TimePerMoveSlider" Minimum="0" Maximum="30" TickFrequency="5" Value="5" Margin="0,10,0,0"/>
+
+            <TextBlock Text="Звук:" FontSize="18" Margin="0,10,0,0"/>
+            <CheckBox Content="Включить звук" IsChecked="{Binding SoundEnabled, Mode=TwoWay}"/> 
+            <CheckBox x:Name="SoundNotificationsCheckbox" Content="Звуковые уведомления" Margin="0,10,0,0"/>
+
+            <TextBlock Text="Громкость:" FontSize="18" Margin="0,10,0,0"/>
+            <Slider x:Name="volumeSlider" Value="{Binding Volume,Mode=TwoWay}" Minimum="0" Maximum="100" SmallChange="1" LargeChange="10"/>
+            <TextBlock Text="Сложность:" FontSize="16"/>
+            <ComboBox x:Name="DifficultyComboBox" Margin="0,10,0,0">
+                <ComboBoxItem Content="Легкий"/>
+                <ComboBoxItem Content="Средний"/>
+                <ComboBoxItem Content="Сложный"/>
+            </ComboBox>
+            <TextBlock Text="Подсказки:" FontSize="16"/>
+            <CheckBox x:Name="ShowHintsCheckbox" Content="Показывать подсказки" Margin="0,10,0,0"/>
+           
+            <Button Content="Сохранить настройки" Margin="0,20,0,0" Click="SaveSettingsButton_Click"/>
+            <Button Content="Назад" Click="GoBack_Click" Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>
