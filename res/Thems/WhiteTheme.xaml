@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Основной фон -->
+    <SolidColorBrush x:Key="BackgroundColor" Color="LightGoldenrodYellow"/>
+
+    <!-- Фон шахматной доски -->
+    <LinearGradientBrush x:Key="BoardBackground" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Offset="0" Color="#FDFDFD"/>
+        <GradientStop Offset="1" Color="#FAFAFA"/>
+    </LinearGradientBrush>
+
+    <!-- Светлые клетки шахматной доски -->
+    <SolidColorBrush x:Key="LightSquare" Color="#FEFEFE"/>
+
+    <!-- Тёмные клетки шахматной доски -->
+    <SolidColorBrush x:Key="DarkSquare" Color="#DADADA"/>
+
+    <!-- Кисть для текста -->
+    <SolidColorBrush x:Key="TextColor" Color="Black"/>
+
+    <!-- Кисть для выделенных элементов -->
+    <SolidColorBrush x:Key="HighlightColor" Color="#EAEAEA"/>
+
+    <!-- Стиль для элементов меню -->
+    <Style TargetType="MenuItem">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+    </Style>
+
+    <!-- Стиль для кнопок -->
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+    </Style>
+</ResourceDictionary>
